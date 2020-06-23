@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"log"
 	"net/http"
 
 	"github.com/aws/aws-lambda-go/lambda"
@@ -11,22 +12,27 @@ import (
 
 // Dog defines our data model
 type Dog struct {
-	Name, Breed string
-	Age, Weight int
+	Name   string `json:"name"`
+	Breed  string `json:"breed"`
+	Age    int    `json:"age"`
+	Weight int    `json:"weight"`
 }
 
 // route we will use to post and get dogs
-// for both GET and POST, the user will get back the data they send
+// GET will return the default dog
+// POST will echo back the dog the user sends
 func dogRoute(ctx context.Context, payload sapi.Payload) *sapi.HandlerReturn {
 	if payload.HTTPMethod == http.MethodPost {
 		dog := &Dog{}
-		err := json.Unmarshal([]byte(payload.Body), dog)
+		log.Println([]byte(payload.Body))
+		err := json.Unmarshal([]byte(payload.Body), &dog)
 		if err != nil {
+			log.Println(err.Error())
 			return &sapi.HandlerReturn{&Dog{}, http.StatusInternalServerError, err}
 		}
-		return &sapi.HandlerReturn{dog, http.StatusOK, nil}
+		return &sapi.HandlerReturn{&dog, http.StatusOK, nil}
 	}
-	return &sapi.HandlerReturn{&Dog{}, http.StatusOK, nil}
+	return &sapi.HandlerReturn{&Dog{Name: "skippy", Breed: "doodle", Age: 14, Weight: 25}, http.StatusOK, nil}
 }
 
 func main() {
