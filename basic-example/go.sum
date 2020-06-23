@@ -7,6 +7,8 @@ github.com/jackhwolf/sapi v0.0.0-20200622001207-5fd4d1fe7144 h1:Zb4rkEVCEDl9tnXn
 github.com/jackhwolf/sapi v0.0.0-20200622001207-5fd4d1fe7144/go.mod h1:372WwBznEElsVb7vb3ndvyfCntQa2MYIuO3SNo0xaMM=
 github.com/jackhwolf/sapi v0.0.0-20200622224807-95d10386b68e h1:UEFri3Pb0Lr3n5j6BM9nUY2e8UoUYfPsK0xQSu3M/2U=
 github.com/jackhwolf/sapi v0.0.0-20200622224807-95d10386b68e/go.mod h1:372WwBznEElsVb7vb3ndvyfCntQa2MYIuO3SNo0xaMM=
+github.com/jackhwolf/sapi v0.0.0-20200623030615-8874cf3c0c0b h1:wXq2tfPHAA7/flGXysjyoTpQyvMiI0nP9Du3kPHes9Y=
+github.com/jackhwolf/sapi v0.0.0-20200623030615-8874cf3c0c0b/go.mod h1:3Got+SAz4r8Sc+3FOX3zkGjwitt+dsTCmo8AHXzMnZA=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeVRXNmyL/1OwPU0+IJeTBvfc=

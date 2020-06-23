@@ -18,12 +18,15 @@ type Dog struct {
 // route we will use to post and get dogs
 // for both GET and POST, the user will get back the data they send
 func dogRoute(ctx context.Context, payload sapi.Payload) *sapi.HandlerReturn {
-	dog := &Dog{}
-	err := json.Unmarshal([]byte(payload.Body), dog)
-	if err != nil {
-		return &sapi.HandlerReturn{dog, http.StatusInternalServerError, err}
+	if payload.HTTPMethod == http.MethodPost {
+		dog := &Dog{}
+		err := json.Unmarshal([]byte(payload.Body), dog)
+		if err != nil {
+			return &sapi.HandlerReturn{&Dog{}, http.StatusInternalServerError, err}
+		}
+		return &sapi.HandlerReturn{dog, http.StatusOK, nil}
 	}
-	return &sapi.HandlerReturn{dog, http.StatusOK, nil}
+	return &sapi.HandlerReturn{&Dog{}, http.StatusOK, nil}
 }
 
 func main() {

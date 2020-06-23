@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// create new router with url prefix `/prefix`
-	rtr := sapi.NewRouter("/prefix/")
+	rtr := sapi.NewRouter("/")
 
 	// assign sampleData function to GET /prefix/sample
 	rtr.AddRoute(func(ctx context.Context, payload sapi.Payload) *sapi.HandlerReturn {
