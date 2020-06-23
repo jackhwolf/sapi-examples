@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"log"
 	"net/http"
 
 	"github.com/aws/aws-lambda-go/lambda"
@@ -24,10 +23,8 @@ type Dog struct {
 func dogRoute(ctx context.Context, payload sapi.Payload) *sapi.HandlerReturn {
 	if payload.HTTPMethod == http.MethodPost {
 		dog := &Dog{}
-		log.Println([]byte(payload.Body))
 		err := json.Unmarshal([]byte(payload.Body), &dog)
 		if err != nil {
-			log.Println(err.Error())
 			return &sapi.HandlerReturn{&Dog{}, http.StatusInternalServerError, err}
 		}
 		return &sapi.HandlerReturn{&dog, http.StatusOK, nil}
